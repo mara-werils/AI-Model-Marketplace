@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Marketplace</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <h1>AI Model Marketplace</h1>
+
+    <!-- Section for Listing a Model -->
+    <div>
+        <h3>List a New AI Model</h3>
+        <input id="modelName" placeholder="Model Name" />
+        <input id="modelDescription" placeholder="Model Description" />
+        <input id="modelPrice" type="number" placeholder="Model Price (ETH)" />
+        <button onclick="listModel()">List Model</button>
+    </div>
+
+    <div>
+        <h3>Purchase a Model</h3>
+        <input id="modelIdPurchase" type="number" placeholder="Model ID" />
+        <button onclick="purchaseModel()">Purchase</button>
+    </div>
+
+    <div>
+        <h3>Rate a Model</h3>
+        <input id="modelIdRate" type="number" placeholder="Model ID" />
+        <input id="modelRating" type="number" placeholder="Rating (1-5)" />
+        <button onclick="rateModel()">Rate</button>
+    </div>
+
+    <div>
+        <h3>Get Model Details</h3>
+        <input id="modelIdDetails" type="number" placeholder="Model ID" />
+        <button onclick="getModelDetails()">Get Details</button>
+        <pre id="modelDetails"></pre>
+    </div>
+
+    <div>
+        <h3>Withdraw Funds</h3>
+        <button onclick="withdrawFunds()">Withdraw</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
