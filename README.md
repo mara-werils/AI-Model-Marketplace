@@ -73,6 +73,85 @@ npx hardhat run scripts/deploy.js --network holesky
 - **Hardhat Deployment Output**:
 ![alt text](image.png)
 
+
+---
+
+
+#### **Using Ganache for Local Development**
+
+Ganache is used for local Ethereum blockchain testing. Follow these steps to set it up:
+
+---
+
+### **1. Install Ganache**
+1. Download Ganache from [here](https://trufflesuite.com/ganache/).
+2. Install it on your system.
+
+---
+
+### **2. Start the Ganache Network**
+1. Open Ganache.
+2. Create a new workspace (or use the default one).
+3. Ensure the RPC server is running at `http://127.0.0.1:7545`.
+
+**Screenshot**:  
+![alt text](image-17.png)
+
+### **3. Configure Hardhat to Connect with Ganache**
+Modify the `hardhat.config.js` file to include a Ganache network:
+
+```javascript
+module.exports = {
+  networks: {
+    ganache: {
+      url: "http://127.0.0.1:7545",
+      accounts: ["YOUR_PRIVATE_KEYS_FROM_GANACHE"], // Replace with private keys
+    },
+  },
+  solidity: "0.8.0",
+};
+```
+
+**Screenshot**:  
+![alt text](image-18.png)
+---
+
+### **4. Deploy Contract to Ganache**
+Deploy the contract to the Ganache network:
+```bash
+npx hardhat run scripts/deploy.js --network ganache
+```
+
+**Screenshot**:  
+![alt text](image-19.png)
+---
+
+### **5. Connect MetaMask to Ganache**
+1. Open MetaMask.
+2. Add a custom RPC network:
+   - **RPC URL**: `http://127.0.0.1:7545`
+   - **Chain ID**: `1337` (or the one specified in Ganache).
+   - **Currency Symbol**: `ETH`.
+
+3. Import an account from Ganache into MetaMask:
+   - Copy the private key from Ganache.
+   - Import the account into MetaMask.
+![alt text](image-20.png)
+
+### **6. Test the Application Locally**
+Run your frontend using:
+```bash
+npx live-server frontend/
+```
+
+Perform the following operations:
+1. **List a Model**.
+2. **Purchase a Model**.
+3. **Rate a Model**.
+4. **Get Model Details**.
+5. **Withdraw Funds**.
+
+
 ## **Usage**
 
 ### **1. Start the Frontend**
